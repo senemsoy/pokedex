@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [pokemon, setPokemon] = useState("pikachu");
+    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonType, setPokemonType] = useState("");
+
+    const getPokemon = async () => {
+      const toArray = [];
+      try {
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}` //gathering an individual pokemon we search for
+        const res = await axios.get(url)
+        console.log(res)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+
+    //testing
+    useEffect(() => {
+      getPokemon()
+    }, [])
+
+    return (
+      <div className="App">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input 
+              type="text" 
+              onChange={handleChange} 
+              placeholder="Search for a Pokemon!"
+            />
+          </label>
+        </form>
+      </div>
+    );
+  
 }
 
 export default App;
