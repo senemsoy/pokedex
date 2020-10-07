@@ -5,9 +5,8 @@
 }
 
 form {
-  border: 1px solid #eee;
   padding: 1% 0;
-  background: #fafafa;
+  background: pink;
 }
 
 .pokeName {
@@ -15,6 +14,7 @@ form {
 } 
 
 .pokeTable {
+  color: #9475BD;
   padding: 2% 0;
   display: table;
   max-width: 20em;
@@ -37,6 +37,8 @@ form {
   border: 2px solid pink;
   display: table-cell;
   padding: 3px 10px;
+  font-size:16px;
+  font-weight: 500;
 }
 .pokeTableHeading {
   display: table-header-group;
@@ -47,7 +49,7 @@ form {
   font-weight: bold;
 }
 .pokeTableBody {
-  border-radius: 10px;
+  border-radius: 5px;
   border: 2px solid pink;
   display: table-row-group;
 }
@@ -87,5 +89,8 @@ input {
   margin: 2rem auto;
   border: 3px solid pink;
   border-radius: 10px;
+}
 
+h1 {
+  font-size: 45px;
 }
