@@ -1,3 +1,29 @@
+## Pokedex
+
+Simple Pokedex app built using the [Pokemon Api](https://pokeapi.co/). The user has the ability to search through all the pokemons existing in the Pokemon Api database, and gets a "card" about the selected pokemon. The card has the following information: height, weight, type(s), abilities, and base stats.
+
+<img src = "pokedex.png" width="800px"/>
+
+## Current Issues / Future Improvements
+Right now the basic functionality of the Pokedex is in place, but there's a lot to improve upon regarding current bugs/issues, and also adding more functionality. 
+
+#### Current Issues/Bugs:
+* Mobile responsiveness needs to be worked on
+* When the search bar is empty and user clicks enter, right now user gets an error and app crashes
+* Very rarely, some of the stats-bars gets outside of the table boundary
+
+#### Future Improvements:
+* Better restructing of files, to follow a more React based approach with each component having their own file.
+* Instead of the homepage displaying the card of the searched pokemon with all the information, displaying just the sprite and making it clickable. The user can search for a pokemon, click on the sprite, and then get to the page with the pokemon card with the stats.
+* Search bar auto-completion for all pokemon names.
+* Doing a call to the Api to get the pokemon count instead of putting it in the App.js myself.
+
+#### Possible Next Features:
+* Be able to click through all the sprite of the selected pokemon, instead of just one.
+* Add more information to the pokemon cards.
+* Show the pokemon evolutions, be able to click through the different evolutions of a pokemon.
+* Have the description of the abilities instead of just the name.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
