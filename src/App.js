@@ -3,7 +3,11 @@ import axios from 'axios';
 import './App.css';
 
 const App = () => {
-    const [pokemon, setPokemon] = useState("pikachu");
+    //current number of Pokemons in the API
+    const pokeCount = 893;
+    const startIndex = Math.floor(Math.random() * pokeCount) + 1;
+
+    const [pokemon, setPokemon] = useState(startIndex);
     const [pokemonData, setPokemonData] = useState([]);
 
     const getPokemon = async () => {
@@ -42,7 +46,7 @@ const App = () => {
 
     const statConvert = (stat) => {
         let convertedStat = stat*0.01
-        return `calc(36%*${convertedStat})`; 
+        return `calc(70%*${convertedStat})`; 
     }
 
     return (
@@ -62,8 +66,8 @@ const App = () => {
             <div className="container">
             <div className="pokeName">
               <h1>{data.name}</h1>
+              <img src={data.sprites["front_default"]} />
             </div>
-            <img src={data.sprites["front_default"]} />
             <div className="pokeTable">
               <div className="pokeTableBody">
                 <div className="pokeTableRow">
@@ -75,7 +79,7 @@ const App = () => {
                 </div>
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Weight</div>
-                  <div className="pokeTableCell">
+                  <div className="pokeTableCell pokeWeight">
                     {" "}
                     {Math.round(data.weight / 4.3)} lbs
                   </div>
@@ -88,11 +92,13 @@ const App = () => {
                 </div>
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Abilities</div>
+                  <div className="pokeTableCell">
                   <ol>
                     {data.abilities && data.abilities.map((abilityObject) => (
-                      <li className="pokeTableCell" key={abilityObject.ability.name}>{abilityObject.ability.name}</li>
+                      <li key={abilityObject.ability.name}>{abilityObject.ability.name}</li>
                     ))}
                   </ol>
+                  </div>
                 </div>
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Hp</div>
