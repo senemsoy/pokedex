@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import logo from './pokeball.png'; 
 
 const App = () => {
     //current number of Pokemons in the API
@@ -40,6 +41,7 @@ const App = () => {
     const Header = () => 
       <div className="header">
         <div className="header-background">
+          <img src={logo} className="logo"/>
           <h1>Pokedex</h1>
         </div>
     </div>

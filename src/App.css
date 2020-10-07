@@ -23,6 +23,12 @@
   justify-content: center;
 }
 
+.logo {
+  display: block;
+  margin: 20px auto;
+  max-height: 80px;
+}
+
 form {
   padding: 1% 0;
   background: pink;
