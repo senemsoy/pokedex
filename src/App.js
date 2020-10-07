@@ -12,17 +12,22 @@ const App = () => {
     const [pokemonData, setPokemonData] = useState([]);
 
     const getPokemon = async () => {
-      const pokeArray = [];
+      const toArray = [];
       try {
-        const api = `https://pokeapi.co/api/v2/pokemon/${pokemon}` //gathering an individual pokemon we search for
-        const results = await axios.get(api)
-        pokeArray.push(results.data);
-        setPokemonData(pokeArray);
-        console.log(results)
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}` //gathering an individual pokemon we search for
+        const res = await axios.get(url)
+        toArray.push(res.data);
+        setPokemonData(toArray);
+        console.log(res)
       } catch (e) {
         console.log(e)
       }
     }
+
+    //testing
+    useEffect(() => {
+      getPokemon()
+    }, [])
 
     const handleChange = (e) => {
       setPokemon(e.target.value.toLowerCase())
@@ -83,6 +88,7 @@ const App = () => {
                 )
             }
         }
+
 
     return (
       <div className="App">
