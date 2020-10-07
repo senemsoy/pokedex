@@ -5,7 +5,6 @@ import './App.css';
 const App = () => {
     const [pokemon, setPokemon] = useState("pikachu");
     const [pokemonData, setPokemonData] = useState([]);
-    const [pokemonType, setPokemonType] = useState("");
 
     const getPokemon = async () => {
       const toArray = [];
@@ -78,6 +77,44 @@ const App = () => {
                   <div className="divTableCell">Abilities</div>
                   <div className="divTableCell">{data.abilities && data.abilities.map((abilityObject) => 
                       abilityObject.ability.name).join(', ')}
+                  </div>
+                </div>
+                <div className="column poke-stats">
+                  <div className="stat row">
+                    <h3>Hp</h3>
+                    <div className="stat-bar">
+                        {data.stats[5].base_stat}
+                    </div>
+                  </div>
+                  <div className="stat row">
+                    <h3>Attack</h3>
+                    <div className="stat-bar">
+                        {data.stats[4].base_stat}
+                    </div>
+                  </div>
+                  <div className="stat row">
+                    <h3>Defense</h3>
+                    <div className="stat-bar">
+                        {data.stats[3].base_stat}
+                    </div>
+                  </div>
+                  <div className="stat row">
+                    <h3>Speed</h3>
+                    <div className="stat-bar">
+                        {data.stats[0].base_stat}
+                    </div>
+                  </div>
+                  <div className="stat row">
+                    <h3>Special Attack</h3>
+                    <div className="stat-bar">
+                        {data.stats[2].base_stat}
+                    </div>
+                  </div>
+                  <div className="stat row">
+                    <h3>Special Defense</h3>
+                    <div className="stat-bar">
+                        {data.stats[1].base_stat}
+                    </div>
                   </div>
                 </div>
               </div>
