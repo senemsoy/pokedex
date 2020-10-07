@@ -33,8 +33,21 @@ const App = () => {
       getPokemon();
     }
 
+    const Header = () => 
+      <div className="header">
+        <div className="header-background">
+          <h1>Pokedex</h1>
+        </div>
+    </div>
+
+    const statConvert = (stat) => {
+        let convertedStat = stat*0.01
+        return `calc(36%*${convertedStat})`; 
+    }
+
     return (
       <div className="App">
+        <Header/>
         <form onSubmit={handleSubmit}>
           <label>
             <input 
@@ -47,72 +60,84 @@ const App = () => {
         {pokemonData.map((data) => {
           return(
             <div className="container">
+            <div className="pokeName">
+              <h1>{data.name}</h1>
+            </div>
             <img src={data.sprites["front_default"]} />
-            <div className="divTable">
-              <div className="divTableBody">
-                <div className="divTableRow">
-                  <div className="divTableCell">{data.name}</div>
-                </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Height</div>
-                  <div className="divTableCell">
+            <div className="pokeTable">
+              <div className="pokeTableBody">
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Height</div>
+                  <div className="pokeTableCell">
                     {" "}
                     {Math.round(data.height * 3.9)}"
                   </div>
                 </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Weight</div>
-                  <div className="divTableCell">
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Weight</div>
+                  <div className="pokeTableCell">
                     {" "}
                     {Math.round(data.weight / 4.3)} lbs
                   </div>
                 </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Type</div>
-                  <div className="divTableCell">{data.types && data.types.map((typeObject) => 
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Type</div>
+                  <div className="pokeTableCell">{data.types && data.types.map((typeObject) => 
                       typeObject.type.name).join(', ')}
                   </div>
                 </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Abilities</div>
-                  <div className="divTableCell">{data.abilities && data.abilities.map((abilityObject) => 
-                      abilityObject.ability.name).join(', ')}
-                  </div>
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Abilities</div>
+                  <ol>
+                    {data.abilities && data.abilities.map((abilityObject) => (
+                      <li className="pokeTableCell" key={abilityObject.ability.name}>{abilityObject.ability.name}</li>
+                    ))}
+                  </ol>
                 </div>
-                <div className="column poke-stats">
-                  <div className="stat row">
-                    <h3>Hp</h3>
-                    <div className="stat-bar">
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Hp</div>
+                  <div className="pokeTableCell">
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[5].base_stat)}}>
                         {data.stats[5].base_stat}
                     </div>
                   </div>
-                  <div className="stat row">
-                    <h3>Attack</h3>
-                    <div className="stat-bar">
+                </div>
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Attack</div>
+                  <div className="pokeTableCell">
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[4].base_stat)}}>
                         {data.stats[4].base_stat}
                     </div>
                   </div>
-                  <div className="stat row">
-                    <h3>Defense</h3>
-                    <div className="stat-bar">
+                </div>
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Defense</div>
+                  <div className="pokeTableCell">
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[3].base_stat)}}>
                         {data.stats[3].base_stat}
                     </div>
                   </div>
-                  <div className="stat row">
-                    <h3>Speed</h3>
-                    <div className="stat-bar">
+                </div>
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Speed</div>
+                  <div className="pokeTableCell">
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[0].base_stat)}}>
                         {data.stats[0].base_stat}
                     </div>
                   </div>
-                  <div className="stat row">
-                    <h3>Special Attack</h3>
-                    <div className="stat-bar">
+                </div>
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Special Attack</div>
+                  <div className="pokeTableCell">
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[2].base_stat)}}>
                         {data.stats[2].base_stat}
                     </div>
                   </div>
-                  <div className="stat row">
-                    <h3>Special Defense</h3>
-                    <div className="stat-bar">
+                </div>
+                <div className="pokeTableRow">
+                  <div className="pokeTableCell">Special Defense</div>
+                  <div className="pokeTableCell">
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[1].base_stat)}}>
                         {data.stats[1].base_stat}
                     </div>
                   </div>
