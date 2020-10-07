@@ -1,72 +1,19 @@
+@import "https://fonts.googleapis.com/css?family=Manjari";
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+@import "https://fonts.googleapis.com/css?family=Raleway";
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 .App {
+  font-family: 'Raleway';
   text-align: center;
   text-transform: capitalize;
   color: #FF9770;
-}
-
-form {
-  padding: 1% 0;
-  background: pink;
-}
-
-.pokeName {
-  color: white;
-} 
-
-.pokeTable {
-  color: #9475BD;
-  padding: 2% 0;
-  display: table;
-  max-width: 20em;
-  float: right;
-  display: flex;
-  align-items: center;
-
-}
-.pokeTableRow {
-  background-color: white;
-
-  display: table-row;
-}
-.pokeTableHeading {
-  display: table-header-group;
-}
-.pokeTableCell,
-.pokeTableHead {
-  text-align: left;
-  border: 2px solid pink;
-  display: table-cell;
-  padding: 3px 10px;
-  font-size:16px;
-  font-weight: 500;
-}
-.pokeTableHeading {
-  display: table-header-group;
-  font-weight: bold;
-}
-.pokeTableFoot {
-  display: table-footer-group;
-  font-weight: bold;
-}
-.pokeTableBody {
-  border-radius: 5px;
-  border: 2px solid pink;
-  display: table-row-group;
-}
-
-.pokeTableCell:nth-child(odd) {
-  background-color: white;
-}
-
-.pokeStat-bar {
-  text-align: center;
-  background: pink;
-  border-radius: 10px;
-  color: white;
-}
-
-.pokeWeight {
-  text-transform: lowercase;
 }
 
 .container {
@@ -74,6 +21,16 @@ form {
   opacity: 0.9;
   background-color: whitesmoke;
   justify-content: center;
+}
+
+form {
+  padding: 1% 0;
+  background: pink;
+}
+
+h1 {
+  font-family: 'Manjari';
+  font-size: 45px;
 }
 
 img {
@@ -89,8 +46,72 @@ input {
   margin: 2rem auto;
   border: 3px solid pink;
   border-radius: 10px;
+  font-family: 'Manjari';
 }
 
-h1 {
-  font-size: 45px;
+
+.pokeName {
+  color: white;
+  margin: 1em;
+} 
+
+.pokeTable {
+  color: #9475BD;
+  padding: 2% 0;
+  display: table;
+  max-width: 20em;
+  float: right;
+  display: flex;
+  align-items: center;
 }
+
+.pokeTableRow {
+  background-color: #EAE3F2;
+  display: table-row;
+}
+
+.pokeTableHeading {
+  display: table-header-group;
+}
+
+.pokeTableCell,
+.pokeTableHead {
+  text-align: left;
+  border: 2px solid pink;
+  display: table-cell;
+  padding: 3px 10px;
+  font-size:16px;
+  font-weight: 800;
+}
+
+.pokeTableHeading {
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.pokeTableFoot {
+  display: table-footer-group;
+  font-weight: bold;
+}
+
+.pokeTableBody {
+  border-radius: 5px;
+  border: 2px solid pink;
+  display: table-row-group;
+}
+
+.pokeTableCell:nth-child(odd) {
+  background-color: #EAE3F2;
+}
+
+.pokeStat-bar {
+  text-align: center;
+  background: pink;
+  border-radius: 10px;
+  color: white;
+}
+
+.pokeWeight {
+  text-transform: lowercase;
+}
+
