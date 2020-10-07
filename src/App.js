@@ -46,8 +46,47 @@ const App = () => {
 
     const statConvert = (stat) => {
         let convertedStat = stat*0.01
-        return `calc(70%*${convertedStat})`; 
+        return `calc(65%*${convertedStat})`; 
     }
+
+    const pokeTypeBackground = (type) => {
+        const pokeType = {
+          normal: '#ffc1b0',
+          fighting: '#f23d65',
+          flying: '#0caaed',
+          poison: '#867bff',
+          ground: '#bb7171',
+          rock: '#cfcbf5',
+          bug: '#88db88',
+          ghost: '#dedede',
+          steel: '#76afb5',
+          fire: '#f06c6c',
+          water: '#72d6ce',
+          grass: '#a1d998',
+          electric: '#ffe585',
+          psychic: '#82acff',
+          ice: '#b0e7ff',
+          dragon: '#ffa258',
+          dark: '#b578d6',
+          fairy: '#bea7db',
+          unknown: '#2c8fa8',
+          shadow: '#515a73'
+        };
+        return pokeType[type];
+    }
+
+    let renderBackgroundColor = (data) => {
+            if (data.types.length === 1) {
+                return (
+                    pokeTypeBackground(data.types[0].type.name)
+                )
+            } else {
+                return (
+                    `linear-gradient(to right, ${pokeTypeBackground(data.types[0].type.name)}, ${pokeTypeBackground(data.types[1].type.name)})`
+                )
+            }
+        }
+
 
     return (
       <div className="App">
@@ -63,7 +102,7 @@ const App = () => {
         </form>
         {pokemonData.map((data) => {
           return(
-            <div className="container">
+            <div className="container " style={{background: renderBackgroundColor(data)}}>
             <div className="pokeName">
               <h1>{data.name}</h1>
               <img src={data.sprites["front_default"]} />
@@ -103,7 +142,7 @@ const App = () => {
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Hp</div>
                   <div className="pokeTableCell">
-                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[5].base_stat)}}>
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[5].base_stat), background: renderBackgroundColor(data)}}>
                         {data.stats[5].base_stat}
                     </div>
                   </div>
@@ -111,7 +150,7 @@ const App = () => {
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Attack</div>
                   <div className="pokeTableCell">
-                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[4].base_stat)}}>
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[4].base_stat), background: renderBackgroundColor(data)}}>
                         {data.stats[4].base_stat}
                     </div>
                   </div>
@@ -119,7 +158,7 @@ const App = () => {
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Defense</div>
                   <div className="pokeTableCell">
-                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[3].base_stat)}}>
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[3].base_stat), background: renderBackgroundColor(data)}}>
                         {data.stats[3].base_stat}
                     </div>
                   </div>
@@ -127,7 +166,7 @@ const App = () => {
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Speed</div>
                   <div className="pokeTableCell">
-                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[0].base_stat)}}>
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[0].base_stat), background: renderBackgroundColor(data)}}>
                         {data.stats[0].base_stat}
                     </div>
                   </div>
@@ -135,7 +174,7 @@ const App = () => {
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Special Attack</div>
                   <div className="pokeTableCell">
-                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[2].base_stat)}}>
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[2].base_stat), background: renderBackgroundColor(data)}} >
                         {data.stats[2].base_stat}
                     </div>
                   </div>
@@ -143,7 +182,7 @@ const App = () => {
                 <div className="pokeTableRow">
                   <div className="pokeTableCell">Special Defense</div>
                   <div className="pokeTableCell">
-                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[1].base_stat)}}>
+                    <div className="pokeStat-bar" style={{width: statConvert(data.stats[1].base_stat), background: renderBackgroundColor(data)}} >
                         {data.stats[1].base_stat}
                     </div>
                   </div>
